@@ -75,7 +75,7 @@ const Home = () => {
     try {
       const updatedNote = { ...note, favourite: !note.favourite };
   
-      await axios.put(`https://note-taker-bdon.onrender.com/${note._id}`, updatedNote);
+      await axios.put(`https://note-taker-bdon.onrender.com/notes/${note._id}`, updatedNote);
   
       setNotesData((prevNotes) =>
         prevNotes.map((n) =>
