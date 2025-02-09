@@ -7,13 +7,10 @@ const noteRoute = require("./routes/note")
 const app = express();
 const PORT = process.env.PORT || 8000;
 const cors = require('cors');
-const corsOptions = {
-    credentials: true,
-  };
 
 app.use(express.json());
 app.use(express.urlencoded({extended:false,useNewUrlParser: true, useUnifiedTopology: true}))
-app.use(cors(corsOptions));
+app.use(cors());
 
 
 mongoose.connect(process.env.MONGO_URL)
