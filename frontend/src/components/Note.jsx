@@ -25,7 +25,7 @@ const Note = ({ noteData, closeNote, onNoteDelete }) => {
 
   const handleDeleteNote = async () => {
     try {
-      await axios.delete(`http://localhost:8000/notes/${_id}`);
+      await axios.delete(`https://note-taker-bdon.onrender.com/notes/${_id}`);
       onNoteDelete(_id);
       closeNote();
     } catch (error) {
@@ -43,7 +43,7 @@ const Note = ({ noteData, closeNote, onNoteDelete }) => {
         audioTranscript,
       };
 
-      await axios.put(`http://localhost:8000/notes/${_id}`, updatedNote);
+      await axios.put(`https://note-taker-bdon.onrender.com/notes/${_id}`, updatedNote);
       setIsEditing(false);
       closeNote();
       window.location.reload();
