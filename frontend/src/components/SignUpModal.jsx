@@ -20,12 +20,12 @@ const SignUpModal = ({ toggleModal }) => {
   const handleSubmit = async () => {
     try {
       if (isSignup) {
-        await axios.post('http://localhost:8000/user/signup', formData);
+        await axios.post('https://note-taker-bdon.onrender.com/user/signup', formData);
         setIsSignup(false);
         setFormData({ email: formData.email, password: '' });
         setError('Account created successfully. Please login.');
       } else {
-        const response = await axios.post('http://localhost:8000/user/login', formData);
+        const response = await axios.post('https://note-taker-bdon.onrender.com/user/login', formData);
         const { token, userId, email, firstName, lastName } = response.data;
   
         login(token, { userId, email, firstName, lastName });
