@@ -20,7 +20,7 @@ const Search = () => {
     setError('');
 
     try {
-      const response = await axios.get(`http://localhost:8000/notes/${userId}/search`, {
+      const response = await axios.get(`https://note-taker-bdon.onrender.com/notes/${userId}/search`, {
         params: { query }
       });
       setSearchResults(response.data);
