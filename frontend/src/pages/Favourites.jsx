@@ -25,7 +25,7 @@ const Favourites = () => {
 
   const fetchNotes = async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/notes/${userId}/favourites`);
+      const response = await axios.get(`https://note-taker-bdon.onrender.com/notes/${userId}/favourites`);
       setNotesData(response.data);
     } catch (error) {
       console.error('Error fetching notes:', error);
@@ -36,7 +36,7 @@ const Favourites = () => {
 
   const createNote = async (newNote) => {
     try {
-      const response = await axios.post('http://localhost:8000/notes', newNote);
+      const response = await axios.post('https://note-taker-bdon.onrender.com/notes', newNote);
       setNotesData([...notesData, response.data]);
     } catch (error) {
       console.error('Error creating note:', error);
@@ -75,10 +75,8 @@ const Favourites = () => {
     try {
       const updatedNote = { ...note, favourite: !note.favourite };
   
-      // Update the backend
-      await axios.put(`http://localhost:8000/notes/${note._id}`, updatedNote);
+      await axios.put(`https://note-taker-bdon.onrender.com/notes/${note._id}`, updatedNote);
   
-      // Update the UI
       setNotesData((prevNotes) =>
         prevNotes.map((n) =>
           n._id === note._id ? { ...n, favourite: !n.favourite } : n
