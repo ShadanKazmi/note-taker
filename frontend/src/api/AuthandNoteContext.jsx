@@ -27,7 +27,7 @@ export const ConProvider = (props) => {
 
     const fetchUserDetails = async (userId) => {
         try {
-            const response = await axios.get(`http://localhost:8000/user/${userId}`);
+            const response = await axios.get(`https://note-taker-bdon.onrender.com/user/${userId}`);
             const userData = response.data;
             setUser(userData);
         } catch (error) {
