@@ -104,7 +104,7 @@ const Home = () => {
         </button>
       </div>
 
-      {loading ? (
+{/*       {loading ? (
         <div className='flex justify-center mt-auto mb-auto'>
         <FourSquare color="#9831cc" size="large" textColor="" />
         </div>
@@ -126,7 +126,37 @@ const Home = () => {
             />
           ))}
         </div>
-      )}
+      )} */}
+
+      {userId ? (
+      loading ? (
+        <div className="flex justify-center mt-auto mb-auto">
+          <FourSquare color="#9831cc" size="large" textColor="" />
+        </div>
+      ) : (
+        <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 overflow-y-auto h-[calc(100vh-200px)] custom-scrollbar">
+          {notesData.map((note) => (
+            <Notes
+              key={note._id}
+              Title={note.title}
+              CreatedAt={note.createdAt}
+              TextContent={note.textContent}
+              Image={note.imageFile}
+              Audio={note.audioFile}
+              Transcript={note.audioTranscript}
+              onClick={() => openNote(note)}
+              toggle={toggleModal}
+              fav={() => handleFav(note)}
+              isFav={note.favourite}
+            />
+          ))}
+        </div>
+      )
+    ) : (
+      <div className="flex flex-col items-center justify-center mt-auto mb-auto text-gray-600">
+        <p className="text-lg font-semibold">You need to sign up or log in to create and view notes.</p>
+      </div>
+    )}
 
 {/*       <div className="flex items-center justify-between mt-1 mx-16 px-6 py-3 bg-white-100 border border-gray-300 rounded-full shadow-md">
         <div className="flex items-center space-x-4 text-gray-600">
