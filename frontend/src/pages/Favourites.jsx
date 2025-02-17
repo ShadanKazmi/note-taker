@@ -9,6 +9,7 @@ import { AiFillAudio } from "react-icons/ai";
 import EditModal from '../components/EditModal';
 import Note from '../components/Note';
 import { LuSlidersHorizontal } from "react-icons/lu";
+import { FourSquare } from 'react-loading-indicators';
 
 const Favourites = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -104,7 +105,9 @@ const Favourites = () => {
       </div>
 
       {loading ? (
-        <p>Loading notes...</p>
+        <div className='flex justify-center mt-auto mb-auto'>
+        <FourSquare color="#9831cc" size="large" textColor="" />
+        </div>
       ) : (
         <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 overflow-y-auto h-[calc(100vh-200px)] custom-scrollbar">
           {notesData.map((note) => (
