@@ -9,6 +9,7 @@ import { AiFillAudio } from "react-icons/ai";
 import EditModal from '../components/EditModal';
 import Note from '../components/Note';
 import { LuSlidersHorizontal } from "react-icons/lu";
+import { FourSquare } from 'react-loading-indicators';
 
 const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -104,7 +105,9 @@ const Home = () => {
       </div>
 
       {loading ? (
-        <p>Loading notes...</p>
+        <div className='flex justify-center mt-auto mb-auto'>
+        <FourSquare color="#9831cc" size="large" textColor="" />
+        </div>
       ) : (
         <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 overflow-y-auto h-[calc(100vh-200px)] custom-scrollbar">
           {notesData.map((note) => (
@@ -125,7 +128,7 @@ const Home = () => {
         </div>
       )}
 
-      <div className="flex items-center justify-between mt-1 mx-16 px-6 py-3 bg-white-100 border border-gray-300 rounded-full shadow-md">
+{/*       <div className="flex items-center justify-between mt-1 mx-16 px-6 py-3 bg-white-100 border border-gray-300 rounded-full shadow-md">
         <div className="flex items-center space-x-4 text-gray-600">
           <MdOutlineDraw className="text-2xl cursor-pointer" onClick={toggleModal} />
           <FaRegImage className="text-2xl cursor-pointer" onClick={toggleModal} />
@@ -135,6 +138,20 @@ const Home = () => {
           onClick={toggleModal}
         >
           <AiFillAudio />
+        </div>
+      </div> */}
+
+      <div className="mt-auto mx-16 px-6 py-3 bg-white-100 border border-gray-300 rounded-full shadow-md">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-4 text-gray-600">
+            <MdOutlineDraw className="text-2xl cursor-pointer" onClick={toggleModal} />
+            <FaRegImage className="text-2xl cursor-pointer" onClick={toggleModal} />
+          </div>
+          <div
+          className="flex items-center justify-center px-4 py-1 bg-red-500 text-white rounded-full cursor-pointer"
+          onClick={toggleModal}>
+            <AiFillAudio />
+          </div>
         </div>
       </div>
 
