@@ -26,8 +26,7 @@ const Sidebar = () => {
     <div className="flex flex-col justify-between w-64 h-[calc(100vh-40px)] bg-white p-8 rounded-2xl shadow-lg border border-grey m-4 sm:w-16 md:w-32 lg:w-64">
       <div>
         <h1 className="text-2xl font-bold mb-6 flex items-center">
-          <img src={logo} alt="Logo" className="mr-3 w-8 h-8 rounded-full" />
-          <span className="hidden sm:inline">AI Notes</span>
+          <span className="hidden sm:inline">Smart Notes</span>
         </h1>
         <hr className="mb-6" />
 
